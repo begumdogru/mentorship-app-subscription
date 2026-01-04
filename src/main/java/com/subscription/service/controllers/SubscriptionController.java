@@ -22,7 +22,7 @@ public class SubscriptionController {
     @PostMapping("/create")
     public ResponseEntity<MentorMenteeSubscription> createMentorMenteeSubscription(@RequestBody SubscriptionRequestDto requestDto) {
         MentorMenteeSubscription subscription = subscriptionService.createSubscription(requestDto);
-
+        //TODO:: BİR ÜYE AYNI PAKETTEN ART ARDA ALINCA NASIL BİR BUSINESS RULE İŞLEMELİ?
         return ResponseEntity.ok(subscription);
     }
 

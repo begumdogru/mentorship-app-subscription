@@ -30,9 +30,6 @@ public class MentorMenteeSubscription {
     @Column(nullable = false)
     private SubscriptionStatus status;
 
-    @Column(name = "matched_date")
-    private LocalDateTime matchedDate;
-
     @Column(name = "subscription_end_date")
     private LocalDateTime subscriptionEndDate;
 
@@ -44,4 +41,11 @@ public class MentorMenteeSubscription {
 
     @Column(name = "created_at")
     private LocalDateTime createdAt;
+
+    @PrePersist
+    public void prePersist() {
+        this.createdAt = LocalDateTime.now();
+        this.subscriptionEndDate = this.createdAt.plusMonths(2);
+    }
+
 }

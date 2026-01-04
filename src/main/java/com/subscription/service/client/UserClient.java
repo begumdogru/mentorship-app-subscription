@@ -9,7 +9,7 @@ import org.springframework.web.client.RestTemplate;
 public class UserClient {
 
     private final RestTemplate restTemplate;
-    @Value("${user.service.base-url}")
+    @Value("${user.service.base-url}") //TODO:: Burayı daha generic yönetilebilir hale getir. Mesela her ortamın ayrı app-prop'u olmalı ve url ona göre belirlenmeli.
     private String baseUrl;
 
     public UserClient(RestTemplate restTemplate) {
@@ -17,7 +17,7 @@ public class UserClient {
     }
 
     public UserResponse getUserById(Long userId){
-        String url = baseUrl + "api/v1/users" + userId;
+        String url = baseUrl + "api/v1/users/" + userId;
         return restTemplate.getForObject(url, UserResponse.class);
     }
 }
