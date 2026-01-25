@@ -25,4 +25,6 @@ public interface SubscriptionRepository extends JpaRepository<MentorMenteeSubscr
             Long mentee,
             SubscriptionStatus status
     );
+
+    Optional<MentorMenteeSubscription> findFirstByMenteeAndStatus(Long menteeUserId, SubscriptionStatus subscriptionStatus);
 }

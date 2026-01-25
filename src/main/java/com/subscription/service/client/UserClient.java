@@ -17,7 +17,7 @@ public class UserClient {
     }
 
     public UserResponse getUserById(Long userId){
-        String url = baseUrl + "api/v1/users/" + userId;
+        String url = baseUrl + "users/" + userId;
         return restTemplate.getForObject(url, UserResponse.class);
     }
 }
